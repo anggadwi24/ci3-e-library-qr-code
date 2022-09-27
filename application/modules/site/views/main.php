@@ -50,7 +50,7 @@
         <!-- Start Single Tab Content -->
         <div class="furniture--4 border--round arrows_style owl-carousel owl-theme row mt--50">
             <!-- Start Single Product -->
-            <div class="product product__style--3">
+           
                 <?php foreach($newest->result_array() as $new){
                     if(file_exists('upload/buku/'.$new['buku_cover'])){
                         $img = base_url('upload/buku/').$new['buku_cover'];
@@ -58,6 +58,7 @@
                         $img = base_url('upload/buku/404.jpg');
                     }   
                 ?>
+                 <div class="product product__style--3">
                 <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                     <div class="product__thumb">
                         <a class="first__img" href="<?= base_url('buku/'.$new['buku_slug'])?>"><img src="<?= $img ?>" alt="<?= $new['buku_judul'] ?>"></a>
@@ -79,8 +80,9 @@
                        
                     </div>
                 </div>
-            </div>
+                </div>
             <?php }?>
+            
             <!-- Start Single Product -->
             
          
