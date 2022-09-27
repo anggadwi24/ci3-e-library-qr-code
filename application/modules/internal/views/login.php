@@ -29,6 +29,7 @@
     <link rel="stylesheet" type="text/css" href="<?= base_url('template/admin/assets/') ?>/icon/icofont/css/icofont.css">
     <!-- Style.css -->
     <link rel="stylesheet" type="text/css" href="<?= base_url('template/admin/assets/') ?>/css/style.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url('template/admin/bower_components/') ?>/sweetalert/css/sweetalert.css">
     <!-- color .css -->
 
 </head>
@@ -43,7 +44,7 @@
                     <div class="login-card card-block auth-body">
                         <form class="md-float-material" action="<?= base_url('internal/auth/do') ?>" method="POST">
                             <div class="text-center">
-                                <img src="<?= base_url('template/admin/assets/') ?>/images/auth/logo.png" alt="logo.png">
+                                <img src="<?= base_url('upload/') ?>logo2.png" alt="logo.png">
                             </div>
                             <div class="auth-box">
                                 <div class="row m-b-20">
@@ -138,11 +139,11 @@
     <!-- Warning Section Ends -->
     <!-- Required Jquery -->
     <script src="<?= base_url('template/admin/bower_components/') ?>sweetalert/js/sweetalert.min.js"></script>
-    <?php if($this->session->flashdata('message')){
+    <?php if($this->session->flashdata('error')){
         echo "<script>
                 swal({
                     title:'Warning!',
-                    text:'".$this->session->flashdata('message')."',
+                    text:'".$this->session->flashdata('error')."',
                     customClass: 'swal-wide',
                     type:'error',
                 });

@@ -74,16 +74,40 @@
                                         <hr>    
                                         <div class="form-row">
                                             <div class="col-md-12 form-group">
-                                                <label for="">Buku</label>
-                                                <select  id="buku" class="form-control">
-                                                    <option disabled selected>Pilih buku</option>
-                                                  
-                                                </select>
+                                                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                                    <a class="nav-item nav-link active" id="nav-qr-tab" data-toggle="tab" href="#nav-qr" role="tab" aria-controls="nav-qr" aria-selected="true">QR Code</a>
+                                                    <a class="nav-item nav-link" id="nav-manual-tab" data-toggle="tab" href="#nav-manual" role="tab" aria-controls="nav-manual" aria-selected="false">Manual</a>
+                                                   
+                                                </div>
                                             </div>
-                                           
-                                            <div class="col-md-12 form-group">
-                                                <button class="btn btn-primary float-right" type="button" id="btnAdd"><i class="icofont icofont-plus"></i>Tambah</button>
+                                            <div class="col-md-12">
+                                                    <div class="tab-content" id="nav-tabContent">
+                                                        <div class="tab-pane fade show active" id="nav-qr" role="tabpanel" aria-labelledby="nav-qr-tab">
+                                                            <div class="row">
+                                                                <div class="col-12 form-group">
+                                                                    <div id="reader" style="width:1000px"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="tab-pane fade" id="nav-manual" role="tabpanel" aria-labelledby="nav-manual-tab">
+                                                            <div class="row">
+                                                                <div class="col-md-12 form-group">
+                                                                    <label for="">Buku</label>
+                                                                    <select  id="buku" class="form-control">
+                                                                        <option disabled selected>Pilih buku</option>
+                                                                    
+                                                                    </select>
+                                                                </div>
+                                                            
+                                                                <div class="col-md-12 form-group">
+                                                                    <button class="btn btn-primary float-right" type="button" id="btnAdd"><i class="icofont icofont-plus"></i>Tambah</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                     
+                                                    </div>
                                             </div>
+                                          
                                         </div>
                                     </div>
                                 </div>

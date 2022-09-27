@@ -232,7 +232,7 @@
 
 /*=============  Product Activation ============*/
     $('.product__indicator--4').owlCarousel({
-        loop:true,
+        loop:false,
         margin:0,
         nav:true,
         autoplay: false,

@@ -73,6 +73,23 @@
                     </div>
                 </div>
             </div>
+            <div class="card mt-4">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="p-h-10">
+                                <h5>Peminjam</h5>
+                                <hr>   
+                                <div class="row" id="data"> 
+                                
+                                    
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </div>
         <div class="col-md-4">
@@ -101,28 +118,34 @@
                     </div>
                 </div>
             </div>
-
-        </div>
-
-        <div class="col-md-12">
-            
-            <div class="card">
+            <div class="card mt-4">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-12">
-                            <div class="p-h-10">
-                                <h5>Peminjam</h5>
-                                <hr>   
-                                <div class="row" id="data"> 
-                                
-                                    
+                        <div class="col-md-12 ">
+                            <div class="p-h-10 ">
+                                <h5>QR Code</h5>
+                                <hr> 
+                                 
+                                <div class="row">
+                                    <div class="col-12">
+                                            <?php if(file_exists('upload/qr/'.$row['buku_qr_code'])){?>
+                                                <img src="<?= base_url('upload/qr/'.$row['buku_qr_code']) ?>" class="img-fluid" alt="">
+                                            <?php }?>
+                                    </div>
+                                  
                                 </div>
-
+                                
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+        </div>
+
+        <div class="col-md-12">
+            
+           
 
         </div>
 

@@ -73,6 +73,21 @@
           return $result;
         }
       }
+      function deskripsi($desc){
+        $desc = preg_replace('#\n\r#', '', $desc);
+        $desc = preg_replace('#\n#', '', $desc);
+        // $desc = preg_replace('/<p\b[^>]*>(.*?)<\/p>/i', '', $desc);
+        while(preg_match_all('#(<span.*?>)(.*?)(</span>)#', $desc)) {  
+          $desc = preg_replace('#(<span.*?>)(.*?)(</span>)#', '$2', $desc);
+        }
+        $desc = strip_tags($desc);
+          if(strlen($desc) > 300){
+            $description = substr($desc,0,300).'...';
+          }else{
+            $description = $desc;
+          }
+          return $description;
+      }
     if (!function_exists('tanggal')) {
         function tanggal($date){
           date_default_timezone_set('Asia/Makassar');
@@ -362,12 +377,12 @@
     function singkatNama($nama){
         $ex = explode(' ',$nama);
         $count = count($ex);
-        if($ex == 1){
+        if($count == 1){
             return $nama;
-        }else if($ex == 2){
+        }else if($count == 2){
             $name = $ex[0].' '.$ex[1];
             return $name;
-        }else if($ex > 2){
+        }else if($count > 2){
             $name = $ex[0].' '.$ex[1];
             return $name;
         }

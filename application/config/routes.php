@@ -54,6 +54,8 @@ $route['buku'] = 'site/buku';
 $route['buku/(:any)'] = 'site/buku/detail/$1';
 
 $route['auth'] = 'site/auth';
+$route['register'] = 'site/auth/register';
+
 $route['logout'] = 'site/logout';
 $route['history'] = 'site/history';
 $route['history/detail'] = 'site/history/detail';

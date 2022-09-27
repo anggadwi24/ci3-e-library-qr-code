@@ -381,6 +381,7 @@
                 });
             </script>";
     }?>
+        <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
 <?php if($js){
         echo "<script  type='module' src='".$js."'></script>";
     } ?>

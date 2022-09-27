@@ -30,7 +30,28 @@ class Buku extends MX_Controller
 
 
 	}
-
+	function generateQR($kode){
+		$this->load->library('ciqrcode');
+	   
+		$config['cacheable']    = true; //boolean, the default is true
+		$config['cachedir']     = './upload/qr/'; //string, the default is application/cache/
+		$config['errorlog']     = './upload/qr/'; //string, the default is application/logs/
+		$config['imagedir']     = './upload/qr/'; //direktori penyimpanan qr code
+		$config['quality']      = true; //boolean, the default is true
+		$config['size']         = '1024'; //interger, the default is 1024
+		$config['black']        = array(224,255,255); // array, default is array(255,255,255)
+		$config['white']        = array(70,130,180); // array, default is array(0,0,0)
+		$this->ciqrcode->initialize($config);
+ 
+		$image_name=$kode.'.png'; //buat name dari qr code sesuai dengan nim
+ 
+		$params['data'] = $kode; //data yang akan di jadikan QR CODE
+		$params['level'] = 'H'; //H=High
+		$params['size'] = 10;
+		$params['savename'] = FCPATH.$config['imagedir'].$image_name; //simpan image QR CODE ke folder assets/images/
+		$this->ciqrcode->generate($params); // fungsi untuk generate QR CODE
+		return $image_name;
+	}
 	public function add()
 	{
 		$data['page'] = 'Buku';
@@ -185,6 +206,9 @@ class Buku extends MX_Controller
 						$denda_hilang = $this->input->post('denda_hilang');
 						$denda_rusak = $this->input->post('denda_rusak');
 						$slug = $this->model_app->seo_buku_update(seo($judul),$row['buku_id']);
+						if($row['buku_qr_code'] != NULL OR $row['buku_qr_code'] != ''){
+							unlink('/upload/qr'.$row['buku_qr_code']);
+						}
 						$data = array(
 							'buku_judul'=>$judul,
 							'buku_kode'=>$kode,
@@ -200,6 +224,7 @@ class Buku extends MX_Controller
 							'buku_denda_rusak'=>$denda_rusak,
 							'buku_cover'=>$cover,
 							'buku_slug'=>$slug,
+							'buku_qr_code'=>$this->generateQR($kode),
 							
 							);
 						$this->model_app->update('buku',$data,array('buku_id'=>$row['buku_id']));
@@ -329,6 +354,7 @@ class Buku extends MX_Controller
 						'buku_denda_rusak'=>$denda_rusak,
 						'buku_cover'=>$cover,
 						'buku_slug'=>$slug,
+						'buku_qr_code'=>$this->generateQR($kode),
 						
 						);
 					$this->model_app->insert('buku',$data);

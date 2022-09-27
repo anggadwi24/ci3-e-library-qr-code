@@ -151,7 +151,7 @@
 													<?php }?>
 												
 												</ul>
-												<p><?= substr($row['buku_sinopsis'],0,50) ?></p>
+												<p><?= deskripsi($row['buku_sinopsis']) ?></p>
 												<ul class="cart__action d-flex">
 													<li class="cart"><a href="<?= base_url('buku/'.$row['buku_slug']) ?>">Detail</a></li>
 													

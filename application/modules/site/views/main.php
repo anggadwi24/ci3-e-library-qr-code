@@ -139,7 +139,7 @@
                     
 					<div class="row single__tab tab-pane fade show active" id="nav-all" role="tabpanel">
 						<div class="product__indicator--4 arrows_style owl-carousel owl-theme">
-							<div class="single__product">
+							
 								<!-- Start Single Product -->
                                 <?php 
                                     if($semua->num_rows() > 0){
@@ -149,12 +149,12 @@
                                             }else{
                                                 $img = base_url('upload/buku/404.jpg');
                                             }   
-                                            ?>
+                                            ?><div class="single__product">
                                             <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                                                 <div class="product product__style--3">
                                                     <div class="product__thumb">
-                                                        <a class="first__img" href="<?= base_url('buku/'.$all['buku_slug'])?>"><img src="<?= $img ?>" alt="<?= $all['buku_judul'] ?>"></a>
-                                                        <a class="second__img animation1" href="<?= base_url('buku/'.$all['buku_slug'])?>"><img src="<?= $img ?>" alt="<?= $all['buku_judul'] ?>"></a>
+                                                        <a class="first__img" href="<?= base_url('buku/'.$all['buku_slug'])?>"><img src="<?= $img ?>" alt="<?= $all['buku_judul'] ?>" style="height: 340px;"></a>
+                                                        <a class="second__img animation1" href="<?= base_url('buku/'.$all['buku_slug'])?>"><img src="<?= $img ?>" alt="<?= $all['buku_judul'] ?>" style="height: 340px;"></a>
                                                         
                                                     </div>
                                                     <div class="product__content content--center content--center">
@@ -164,7 +164,7 @@
                                                             <div class="actions_inner">
                                                                 <ul class="add_to_links">
                                                                
-                                                                    <li><a class="compare" href="<?= base_url($all['buku_slug'])?>"><i class="bi bi-search"></i></a></li>
+                                                                    <li><a class="compare" href="<?= base_url('buku/'.$all['buku_slug'])?>"><i class="bi bi-search"></i></a></li>
                                                                
                                                                 </ul>
                                                             </div>
@@ -173,12 +173,13 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            </div>
                                             <?php
                                         }
                                     }
                                 ?>
 									<!-- Start Single Product -->
-							</div>
+							
 						</div>
 					</div>
 					<!-- End Single Tab Content -->
@@ -190,7 +191,7 @@
                                 ?>
                                 <div class="row single__tab tab-pane fade" id="nav-<?=$kat['kategori_slug']?>" role="tabpanel">
                                     <div class="product__indicator--4 arrows_style owl-carousel owl-theme">
-                                        <div class="single__product">
+                                      
                                             <?php 
                                                 if($buku->num_rows() > 0){
                                                     foreach($buku->result_array() as $bu){
@@ -199,12 +200,14 @@
                                                         }else{
                                                             $img = base_url('upload/buku/404.jpg');
                                                         }   
+                                                        $url = base_url('buku/'.$bu['buku_slug']);
                                                         ?>
+                                                          <div class="single__product">
                                                          <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                                                             <div class="product product__style--3">
                                                                 <div class="product__thumb">
-                                                                    <a class="first__img" href="<?= base_url('buku/'.$bu['buku_slug'])?>"><img src="<?= $img ?>" alt="<?= $bu['buku_judul'] ?>"></a>
-                                                                    <a class="second__img animation1" href="<?= base_url('buku/'.$bu['buku_slug'])?>"><img src="<?= $img ?>" alt="<?= $bu['buku_judul'] ?>"></a>
+                                                                    <a class="first__img" href="<?= base_url('buku/'.$bu['buku_slug'])?>"><img src="<?= $img ?>" alt="<?= $bu['buku_judul'] ?>" style="height: 340px;"></a>
+                                                                    <a class="second__img animation1" href="<?= base_url('buku/'.$bu['buku_slug'])?>"><img src="<?= $img ?>" alt="<?= $bu['buku_judul'] ?>" style="height: 340px;"></a>
                                                                     
                                                                 </div>
                                                                 <div class="product__content content--center content--center">
@@ -214,7 +217,7 @@
                                                                         <div class="actions_inner">
                                                                             <ul class="add_to_links">
                                                                         
-                                                                                <li><a class="compare" href="<?= base_url('buku/'.$bu['buku_slug'])?>"><i class="bi bi-search"></i></a></li>
+                                                                                <li><a class="compare" href="<?= $url ?>"><i class="bi bi-search"></i></a></li>
                                                                         
                                                                             </ul>
                                                                         </div>
@@ -223,12 +226,13 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                         </div>
                                                         <?php
                                                     }
                                                 }
 
                                             ?>
-                                        </div>
+                                       
                                     </div>
                                 </div>
                                 <?php

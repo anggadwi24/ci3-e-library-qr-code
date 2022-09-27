@@ -141,6 +141,34 @@ $(document).on('submit','#formAct',function(e){
             
    
 })
+
+const html5QrCode = new Html5Qrcode("reader");
+
+const config = { fps: 10, qrbox: { width: 500, height: 500 } };
+
+    html5QrCode.start({ facingMode: "environment" }, config, (text)=>{
+        // console.log(text);
+        var kode = text;
+        $.ajax({
+            url : baseUrl+'transaksi/searchBook',
+            method : "POST",
+            data : {kode: kode},
+            dataType : 'json',
+            success: function(resp){
+                if(resp.status == true){
+                    data();
+                    dataBuku();
+                }else{
+                    error('Peringatan',resp.msg);
+                }
+                 
+            }
+        });
+      
+    });
+
+
+
 $(document).on('click','#btnAdd',function(e){
     e.preventDefault();
     var buku = $('#buku').val();

@@ -75,6 +75,8 @@
 														<span><a href="<?= base_url('logout') ?>">Logout</a></span>
 														<?php }else{?>
 														<span><a href="<?= base_url('auth') ?>">Login</a></span>
+														<span><a href="<?= base_url('register') ?>">Daftar</a></span>
+
 
 														<?php }?>
 													</div>

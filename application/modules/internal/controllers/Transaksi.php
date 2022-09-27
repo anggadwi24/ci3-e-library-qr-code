@@ -761,6 +761,54 @@ class Transaksi extends MX_Controller
 		}
 		
 	}
+	function searchBook(){
+		if($this->input->method() == 'post'){
+			$buku = $this->input->post('kode');
+			$qty = 1;
+			$item = 0;
+			$cek = $this->model_app->view_where('buku',array('buku_kode'=>$buku));
+			if($cek->num_rows() > 0){
+				$row = $cek->row_array();
+				$record = $this->cart->contents();
+				foreach($record as $rw ){
+					$item =  $rw['qty']+$item;
+
+				}
+				if($item > 1){
+					$status = false;
+					$msg = 'Buku yang dipinjam maksimal 2';
+				}else{
+					if($qty > 2){
+						$status = false;
+						$msg = 'Jumlah buku yang dipinjam maksimal 2';
+					}else{
+						if($row['buku_qty'] >= $qty){
+							$data = array(
+								'id' => $row['buku_id'], 
+							   
+								'name' => $row['buku_judul'],
+							
+								'price' =>0, 
+								'image'=>$row['buku_cover'],
+								'qty' => $qty, 
+							);
+							$this->cart->insert($data);
+							$status = true;
+							$msg = null;
+						}else{
+							$status = false;
+							$msg = 'Jumlah buku tidak cukup';
+						}
+						
+					}
+				}
+			}else{
+				$status = false;
+				$msg = 'Buku tidak ditemukan';
+			}
+			echo json_encode(array('status'=>$status,'msg'=>$msg));
+		}
+	}
 	function addBook(){
 		if($this->input->method() == 'post'){
 			$buku = $this->input->post('buku');
