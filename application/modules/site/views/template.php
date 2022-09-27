@@ -31,12 +31,12 @@
 <body>
     <div class="wrapper" id="wrapper">
 		<!-- Header -->
-		<header id="wn__header" class="header__area header__absolute sticky__header">
+		<header id="wn__header" class="header__area header__absolute sticky__header  bg-dark " >
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-md-6 col-sm-6 col-6 col-lg-2">
 						<div class="logo">
-							<a href="index.html">
+							<a href="<?= base_url() ?>">
 								<img src="<?= base_url('template/public/')?>images/logo/logo.png" alt="logo images">
 							</a>
 						</div>
@@ -112,7 +112,7 @@
 		</header>
 		<!-- //Header -->
 		<!-- Start Search Popup -->
-		<div class="brown--color box-search-content search_active block-bg close__top">
+		<div class="brown--color box-search-content search_active block-bg close__top ">
 			<form id="search_mini_form" class="minisearch" action="<?= base_url('buku') ?>" method="get">
 				<div class="field__search">
 					<input type="text" placeholder="Cari buku disini..." name="keyword">

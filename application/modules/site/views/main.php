@@ -1,40 +1,5 @@
-<div class="slider-area brown__nav slider--15 slide__activation slide__arrow01 owl-carousel owl-theme">
-    <!-- Start Single Slide -->
-    <div class="slide animation__style10 bg-image--1 fullscreen align__center--left">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="slider__content">
-                        <div class="contentbox">
-                            <h2>PERPUSTAKAAN </h2>
-                            <h2><span>MTS AL-MA`RUF </span></h2>
-                        
-                            <a class="shopbtn" href="<?= base_url('buku') ?>">lihat buku</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Single Slide -->
-    <!-- Start Single Slide -->
-    <div class="slide animation__style10 bg-image--7 fullscreen align__center--left">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="slider__content">
-                        <div class="contentbox">
-                            <h2>PERPUSTAKAAN </h2>
-                            <h2><span>MTS AL-MA`RUF </span></h2>
-                        
-                            <a class="shopbtn" href="<?= base_url('buku') ?>">lihat buku</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Single Slide -->
+<div class="slider-area brown__nav slider--15 slide__activation slide__arrow01 owl-carousel owl-theme mt-5">
+ 
 </div>
 <?php if($newest->num_rows() > 0){?>
 <section class="wn__product__area brown--color pt--80  pb--30">
